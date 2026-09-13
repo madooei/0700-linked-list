@@ -24,108 +24,56 @@ public class LinkedList<T> {
   }
 
   public LinkedList() {
-    head = null;
-    tail = null;
-    size = 0;
+    // TODO: Implement me
+    throw new UnsupportedOperationException("TODO: Implement me");
   }
 
   public void add(T value) {
-    Node<T> newNode = new Node<>(value);
-    if (head == null) {
-      head = newNode;
-      tail = newNode;
-    } else {
-      newNode.prev = tail;
-      tail.next = newNode;
-      tail = newNode;
-    }
-    size++;
+    // TODO: Implement me
+    throw new UnsupportedOperationException("TODO: Implement me");
   }
 
   public T get(int index) {
-    if (index < 0 || index >= size) {
-      throw new IndexOutOfBoundsException();
-    }
-    return node(index).value;
+    // TODO: Implement me
+    throw new UnsupportedOperationException("TODO: Implement me");
   }
 
   public void set(int index, T value) {
-    if (index < 0 || index >= size) {
-      throw new IndexOutOfBoundsException();
-    }
-    node(index).value = value;
+    // TODO: Implement me
+    throw new UnsupportedOperationException("TODO: Implement me");
   }
 
   public int size() {
-    return size;
+    // TODO: Implement me
+    throw new UnsupportedOperationException("TODO: Implement me");
   }
 
   public boolean contains(T value) {
-    return indexOf(value) != -1;
+    // TODO: Implement me
+    throw new UnsupportedOperationException("TODO: Implement me");
   }
 
   // Returns -1 if value is not found.
   public int indexOf(T value) {
-    Node<T> current = head;
-    int index = 0;
-    while (current != null) {
-      if (Objects.equals(current.value, value)) {
-        return index;
-      }
-      current = current.next;
-      index++;
-    }
-    return -1;
+    // TODO: Implement me
+    throw new UnsupportedOperationException("TODO: Implement me");
   }
 
   // Removes the element at a given index and returns what was removed.
   public T remove(int index) {
-    if (index < 0 || index >= size) {
-      throw new IndexOutOfBoundsException();
-    }
-    Node<T> target = node(index);
-    T removed = target.value;
-
-    if (target.prev == null) {
-      head = target.next;
-    } else {
-      target.prev.next = target.next;
-    }
-
-    if (target.next == null) {
-      tail = target.prev;
-    } else {
-      target.next.prev = target.prev;
-    }
-
-    size--;
-    return removed;
+    // TODO: Implement me
+    throw new UnsupportedOperationException("TODO: Implement me");
   }
 
   // Removes the first element equal to value and returns whether anything was removed.
   public boolean remove(T value) {
-    int index = indexOf(value);
-    if (index == -1) {
-      return false;
-    }
-    remove(index);
-    return true;
+    // TODO: Implement me
+    throw new UnsupportedOperationException("TODO: Implement me");
   }
 
   // Traverse to the node at a given index. Private — nodes never leave the class.
   private Node<T> node(int index) {
-    if (index < size / 2) {
-      Node<T> current = head;
-      for (int i = 0; i < index; i++) {
-        current = current.next;
-      }
-      return current;
-    } else {
-      Node<T> current = tail;
-      for (int i = size - 1; i > index; i--) {
-        current = current.prev;
-      }
-      return current;
-    }
+    // TODO: Implement me
+    throw new UnsupportedOperationException("TODO: Implement me");
   }
 }
