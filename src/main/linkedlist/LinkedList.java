@@ -43,16 +43,12 @@ public class LinkedList<T> {
   }
 
   public T get(int index) {
-    if (index < 0 || index >= size) {
-      throw new IndexOutOfBoundsException();
-    }
+    validateIndex(index);
     return node(index).value;
   }
 
   public void set(int index, T value) {
-    if (index < 0 || index >= size) {
-      throw new IndexOutOfBoundsException();
-    }
+    validateIndex(index);
     node(index).value = value;
   }
 
@@ -80,12 +76,32 @@ public class LinkedList<T> {
 
   // Removes the element at a given index and returns what was removed.
   public T remove(int index) {
+    validateIndex(index);
+    Node<T> target = node(index);
+    T removed = target.value;
+    unlink(target);
+    return removed;
+  }
+
+  // Removes the first element equal to value and returns whether anything was removed.
+  public boolean remove(T value) {
+    Node<T> target = node(value);
+    if (target == null) {
+      return false;
+    }
+    unlink(target);
+    return true;
+  }
+
+  // Assumes index is in bounds.
+  private void validateIndex(int index) {
     if (index < 0 || index >= size) {
       throw new IndexOutOfBoundsException();
     }
-    Node<T> target = node(index);
-    T removed = target.value;
+  }
 
+  // Assumes target is in the list.
+  private void unlink(Node<T> target) {
     if (target.prev == null) {
       head = target.next;
     } else {
@@ -99,17 +115,6 @@ public class LinkedList<T> {
     }
 
     size--;
-    return removed;
-  }
-
-  // Removes the first element equal to value and returns whether anything was removed.
-  public boolean remove(T value) {
-    int index = indexOf(value);
-    if (index == -1) {
-      return false;
-    }
-    remove(index);
-    return true;
   }
 
   // Traverse to the node at a given index. Private — nodes never leave the class.
@@ -127,5 +132,17 @@ public class LinkedList<T> {
       }
       return current;
     }
+  }
+
+  // Returns the first node with the given value, or null if not found.
+  private Node<T> node(T value) {
+    Node<T> current = head;
+    while (current != null) {
+      if (Objects.equals(current.value, value)) {
+        return current;
+      }
+      current = current.next;
+    }
+    return null;
   }
 }
