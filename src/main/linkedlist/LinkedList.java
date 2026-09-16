@@ -71,8 +71,26 @@ public class LinkedList<T> {
     throw new UnsupportedOperationException("TODO: Implement me");
   }
 
+  // Assumes index is in bounds.
+  private void validateIndex(int index) {
+    // TODO: Implement me
+    throw new UnsupportedOperationException("TODO: Implement me");
+  }
+
+  // Assumes target is in the list.
+  private void unlink(Node<T> target) {
+    // TODO: Implement me
+    throw new UnsupportedOperationException("TODO: Implement me");
+  }
+
   // Traverse to the node at a given index. Private — nodes never leave the class.
   private Node<T> node(int index) {
+    // TODO: Implement me
+    throw new UnsupportedOperationException("TODO: Implement me");
+  }
+
+  // Returns the first node with the given value, or null if not found.
+  private Node<T> node(T value) {
     // TODO: Implement me
     throw new UnsupportedOperationException("TODO: Implement me");
   }
